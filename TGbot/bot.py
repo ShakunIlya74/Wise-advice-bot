@@ -1,4 +1,3 @@
-from config import bot_data
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 import logging
@@ -9,6 +8,7 @@ from pathlib import Path
 from CLI import Quote
 import pandas as pd
 import random
+import json
 
 
 logging.basicConfig(level=logging.INFO)
@@ -23,6 +23,8 @@ logging.basicConfig(level=logging.INFO)
 #    rand_num = random.randint(0, pd_data.shape[0])
 #    return [pd_data.iloc[rand_num]['Цитата'], pd_data.iloc[rand_num]['Автор']]
 
+with open('config.json', "r", encoding='utf-8') as json_file:
+    bot_data = json.load(json_file)
 
 bot = Bot(token=bot_data['API_TOKEN'])
 dp = Dispatcher(bot, storage=MemoryStorage())

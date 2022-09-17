@@ -1,2 +1,5 @@
 aiogram
 pandas
+pymystem3
+gensim
+nltk
